@@ -28,7 +28,34 @@ SELECT name FROM artists WHERE name LIKE '%smith%'
 #####Give me a list of all invoices from Redmond, WA
 SELECT * FROM invoices WHERE billing_city = 'Redmond' AND billing_state = 'WA'
 
-##Syntax for Inner JOIN
-The INNER JOIN keyword selects all rows from both tables as long as there is a match between the columns in both tables
+##Types of SQL Joins
+*Inner Joins
+	- an inner join produces a result set that is limited to the rows wehre there is a match in both tables for what we're looking for. If you don't know which kind of join you need, this will usually be the safe bet
 
-SELECT
+	*Example*:
+	`SELECT gid, first_name, last_name, pid, gardener_id, plant_name 
+	FROM Gardners
+	INNER JOIN Plantings
+	ON gid= gardener_id`
+
+*Left Outer Join
+	- a left outer join, or left join, results in a set where all of the rows for the first, or left hand side, tables are preserved. The rows from the second or right hand side only show up if they have a match with the rows from the first table. Where there are values from teh left table but not from teh right, the table will read null, which means taht the value has not been set.
+
+	*Example*:
+	'SELECT gid, first_name, last_name, pid, gardener_id, plant_name 
+	FROM Gardners
+	LEFT OUTER JOIN Plantings
+	ON gid = gardener_id'
+
+*Right Outer Join
+	- a right outer join, or right join, is the same as a left join, except the roles are reversed. All teh rows from the right hand side table show up in the result, but teh rows from the table on the left are only there if they match the table on the right. Empty spaces are null, just like with the left join.
+
+	*Example*: SELECT gid, first_name, last_name, pid, gardener_id, plant_name 
+	FROM Gardners
+	RIGHT OUTER JOIN Plantings
+	On gid = gardner_id
+
+*Full Outer Join
+	- a full outer join, or just outer join, produces a result set with all the rows of both tables, regardless of whether there are any matches. Similarly to the left and right joins, we call the empty spaces null.
+
+	
