@@ -44,19 +44,19 @@
 	- a left outer join, or left join, results in a set where all of the rows for the first, or left hand side, tables are preserved. The rows from the second or right hand side only show up if they have a match with the rows from the first table. Where there are values from teh left table but not from teh right, the table will read null, which means taht the value has not been set.
 
 	*Example*:
-	'SELECT gid, first_name, last_name, pid, gardener_id, plant_name 
+	`'SELECT gid, first_name, last_name, pid, gardener_id, plant_name 
 	FROM Gardners
 	LEFT OUTER JOIN Plantings
-	ON gid = gardener_id'
+	ON gid = gardener_id'`
 
 3. **Right Outer Join**
 	
 	- a right outer join, or right join, is the same as a left join, except the roles are reversed. All teh rows from the right hand side table show up in the result, but teh rows from the table on the left are only there if they match the table on the right. Empty spaces are null, just like with the left join.
 
-	*Example*: SELECT gid, first_name, last_name, pid, gardener_id, plant_name 
+	*Example*: `SELECT gid, first_name, last_name, pid, gardener_id, plant_name 
 	FROM Gardners
 	RIGHT OUTER JOIN Plantings
-	On gid = gardner_id
+	On gid = gardner_id`
 
 4. **Full Outer Join**
 	
