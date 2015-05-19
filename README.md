@@ -52,7 +52,7 @@ department #, department name)
 
 #####There are many departments in the company. Find the number of employees in each department (at least 1) order from lowest to highest.
 
-`SELECT deptno, deptname, COUNT(workdept), as TOTAL FROM (SELECT * FROM employee INNER JOIN department ON employee.workdept = department.deptno) GROUP BY deptno, deptname order by TOTAL;
+`SELECT deptno, deptname, COUNT(workdept), as TOTAL FROM (SELECT * FROM employee INNER JOIN department ON employee.workdept = department.deptno) GROUP BY deptno, deptname order by TOTAL;`
 
 
 
