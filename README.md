@@ -28,6 +28,37 @@
 #####Give me a list of all invoices from Redmond, WA
 `SELECT * FROM invoices WHERE billing_city = 'Redmond' AND billing_state = 'WA'`
 
+#####Find all the employees who were hired between 01/01/2000 and 12/31/2005 with the output
+alphabetically order by last name & then first name.  (Output columns: employee #, last name, first name)
+`SELECT lastname, firstname FROM employee WHERE hiredate BETWEEN 2000-01-01 AND 2005-12-31 ORDER BY lastname, firstname
+
+#####Find all the employees who worked in the department named OPERATIONS or PLANNING in
+ascending order of the department name (Output columns: employee #, last name, first name, job name, 
+department #, department name)
+`SELECT empno, lastname, firstname, job, workdept deptname FROM employee INNER JOIN department ON employee.workdept = department.deptname`
+
+#####Show all the employees and their total compensation (salary+ bonus+ comm) in descending order based on their compensation (output columns: employee #, last name, first name, compensation)
+
+`SELECT empno, lastname, firstname, salary+bonus+comm AS total_compensation FROM employee ORDER BY total_compensation`
+
+#####Find the 10 lowest paid employees based on their total compensation (salary + bonus + comm) in lowest order first (output columns: employee #, last name, first name, compensation)
+
+`SELECT empno, lastname, firstname, salary+bonus+comm AS total_compensation ORDER BY total_compentation LIMIT 10`
+
+
+#####There are many job roles amoung the 42 employees. Find the number of poeple in each job role (at least 1) order by highest to lowest
+
+`SELECT COUNT(*) as number_of_people_working_job FROM employees GROUP BY job ORDER BY number_of_people_working_job`
+
+#####There are many departments in the company. Find the number of employees in each department (at least 1) order from lowest to highest.
+
+`SELECT deptno, deptname, COUNT(workdept), as TOTAL FROM (SELECT * FROM employee INNER JOIN department ON employee.workdept = department.deptno) GROUP BY deptno, deptname order by TOTAL;
+
+
+
+
+
+
 ##Types of SQL Joins
 1. **Inner Joins**
 	
