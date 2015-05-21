@@ -48,7 +48,7 @@ department #, department name)
 
 #####There are many job roles amoung the 42 employees. Find the number of poeple in each job role (at least 1) order by highest to lowest
 
-`SELECT COUNT(*) as number_of_people_working_job FROM employees GROUP BY job ORDER BY number_of_people_working_job`
+`SELECT job, count(job) AS total_working_job FROM employeees GROUP BY job ORDER BY total_working_job`
 
 #####There are many departments in the company. Find the number of employees in each department (at least 1) order from lowest to highest.
 
